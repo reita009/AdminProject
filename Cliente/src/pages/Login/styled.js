@@ -98,7 +98,6 @@ export const Input = styled.input`
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  padding: 8px 193px 8px 24px;
   gap: 8px;
   width: 360px;
   height: 64px;

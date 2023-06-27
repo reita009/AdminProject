@@ -50,6 +50,7 @@ export const Login = () => {
             <C.InputArea>
               <label>E-mail</label>
               <C.Input
+                className="form-control"
                 type="email"
                 placeholder="Digite seu email"
                 {...register("email")}
@@ -61,6 +62,7 @@ export const Login = () => {
             <C.InputArea>
               <label>Senha</label>
               <C.Input
+                className="form-control"
                 type="password"
                 placeholder="Digite sua senha"
                 {...register("password")}
@@ -84,6 +86,9 @@ export const Login = () => {
                 Precisa de ajuda? <span>Fala conosco</span>
               </p>
             </C.HelpArea>
+            <Link to="/register">
+              <span className="badge text-bg-primary">Cadastre-se</span>
+            </Link>
           </C.BodyLeftArea>
         </C.LeftArea>
         <C.RightArea>
