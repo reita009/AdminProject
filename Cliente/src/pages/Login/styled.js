@@ -32,7 +32,7 @@ export const HeaderLeftArea = styled.header`
   display: flex;
 `;
 
-export const BodyLeftArea = styled.div`
+export const BodyLeftArea = styled.form`
   width: 452px;
   margin-left: auto;
   margin-right: auto;
