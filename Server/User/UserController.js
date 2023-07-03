@@ -4,7 +4,11 @@ const User = require("./user");
 const bcrypt = require("bcryptjs");
 
 router.get("/admin/users", (req, res) => {
-  res.send("usuarios");
+  User.findAll().then((users) => {
+    res.json({
+      users: users,
+    });
+  });
 });
 
 router.get("/admin/users/create", (req, res) => {});

@@ -8,8 +8,8 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 const validationUser = yup.object().shape({
-  email: yup.string().required("Preencha os campo do email."),
-  password: yup.string().required("Preencha os campo da senha."),
+  email: yup.string().required("Preencha o campo do email."),
+  password: yup.string().required("Preencha o campo da senha."),
 });
 export const Register = () => {
   const {
@@ -88,7 +88,7 @@ export const Register = () => {
               <label>Senha</label>
               <C.Input
                 className="form-control"
-                type="text"
+                type="password"
                 placeholder="Digite sua senha"
                 name="password"
                 {...register("password")}
