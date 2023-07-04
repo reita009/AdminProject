@@ -6,6 +6,7 @@ import { Login } from "./pages/Login/Login";
 import { Register } from "./pages/Register/Register";
 import { NotFound } from "./pages/NotFound";
 import { DashBoard } from "./pages/main/DashBoard";
+import { RequireAuth } from "./RequireAuth";
 
 function App() {
   return (
@@ -15,7 +16,14 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/dashboard" element={<DashBoard />} />
+          <Route
+            path="/dashboard"
+            element={
+              <RequireAuth>
+                <DashBoard />
+              </RequireAuth>
+            }
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </>

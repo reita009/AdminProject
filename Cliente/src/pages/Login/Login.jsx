@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as C from "./styled";
 import * as Buttons from "../../components/Buttons/Buttons";
 import { useForm } from "react-hook-form";
@@ -12,6 +12,8 @@ const validationUser = yup.object().shape({
   password: yup.string().required("Senha obrigatória"),
 });
 export const Login = () => {
+  const [showAlert, setShowAlert] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -19,14 +21,21 @@ export const Login = () => {
   } = useForm({
     resolver: yupResolver(validationUser),
   });
+  const navigate = useNavigate();
+  const locationState = {
+    state: { auth: true },
+  };
 
   const userLogin = (data) => {
     const response = axios
-      .post("http://localhost:8081/users/create", data)
-      .then(() => {
-        console.log("Deu tudo Certo!");
+      .post("http://localhost:8081/authenticate", data)
+      .then((response) => {
+        if (response.status == 200) {
+          navigate("/dashboard", locationState);
+        }
       })
       .catch((e) => {
+        setShowAlert(true);
         console.log("Deu errado!");
       });
   };
@@ -43,6 +52,21 @@ export const Login = () => {
         <C.LeftArea>
           <C.HeaderLeftArea>Logo</C.HeaderLeftArea>
           <C.BodyLeftArea method="POST" onSubmit={handleSubmit(userLogin)}>
+            {errors.email && (
+              <div className="alert alert-warning" role="alert">
+                {errors.email?.message}
+              </div>
+            )}
+            {errors.password && (
+              <div className="alert alert-warning" role="alert">
+                {errors.password?.message}
+              </div>
+            )}
+            {showAlert && (
+              <div className="alert alert-danger" role="alert">
+                Email.. ou Senha invalida!
+              </div>
+            )}
             <C.TitleArea>
               <h1>Olá!</h1>
               <p>Insira suas credenciais para fazer o seu login</p>
@@ -56,7 +80,6 @@ export const Login = () => {
                 {...register("email")}
                 name="email"
               />
-              <p>{errors.email?.message}</p>
             </C.InputArea>
 
             <C.InputArea>
@@ -80,7 +103,7 @@ export const Login = () => {
               <Link className="link">Termos de Uso.</Link>
             </C.TermsOfUse>
 
-            <Buttons.DefaultButton type="submit">Entrar</Buttons.DefaultButton>
+            <Buttons.DefaultButton>Entrar</Buttons.DefaultButton>
             <C.HelpArea>
               <p>
                 Precisa de ajuda? <span>Fala conosco</span>

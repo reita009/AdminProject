@@ -56,12 +56,12 @@ export const Register = () => {
               <h1>Cadastro</h1>
             </C.HeaderForm>
             {showSuccess && (
-              <div class="alert alert-success" role="alert">
+              <div className="alert alert-success" role="alert">
                 Cadastro concluido!
               </div>
             )}
             {showDanger && (
-              <div class="alert alert-danger" role="alert">
+              <div className="alert alert-danger" role="alert">
                 email ja existente!
               </div>
             )}
