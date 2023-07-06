@@ -9,13 +9,66 @@ import {
   faCoins,
   faGear,
   faArrowRightFromBracket,
+  faBars,
 } from "@fortawesome/free-solid-svg-icons";
 import Colors from "../../components/colors/colors";
 import * as Button from "../../components/Buttons/Buttons";
+import Logo from "../../assets/logo.png";
+import { DashBoardStage } from "../../components/Stages/DashBoardStage/DashBoardStage";
+import { FinanceStage } from "../../components/Stages/FinanceStage/FinanceStage";
+import { ManagerStage } from "../../components/Stages/ManagerStage/ManagerStage";
+import { NoticeStage } from "../../components/Stages/NoticeStage/NoticeStage";
 
 export const DashBoard = () => {
   const [email, setEmail] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [check, setCheck] = useState([
+    { notice: true },
+    { dashboard: false },
+    { requests: false },
+    { finance: false },
+    { manager: false },
+  ]);
+
+  const handleActiveBtn = (e) => {
+    switch (e) {
+      case "notice":
+        if (check[0].notice) {
+          setCheck([{ notice: false }]);
+        } else {
+          setCheck([{ notice: true }]);
+        }
+        break;
+      case "dashboard":
+        if (check[0].dashboard) {
+          setCheck([{ dashboard: false }]);
+        } else {
+          setCheck([{ dashboard: true }]);
+        }
+        break;
+      case "requests":
+        if (check[0].requests) {
+          setCheck([{ requests: false }]);
+        } else {
+          setCheck([{ requests: true }]);
+        }
+        break;
+      case "finance":
+        if (check[0].finance) {
+          setCheck([{ finance: false }]);
+        } else {
+          setCheck([{ finance: true }]);
+        }
+        break;
+      case "manager":
+        if (check[0].manager) {
+          setCheck([{ manager: false }]);
+        } else {
+          setCheck([{ manager: true }]);
+        }
+        break;
+    }
+  };
 
   useEffect(() => {
     getEmail();
@@ -56,36 +109,55 @@ export const DashBoard = () => {
       )}
 
       <C.Container>
+        <C.LeftAreaMobile>
+          <FontAwesomeIcon icon={faBars} className="icon" />
+        </C.LeftAreaMobile>
+
         <C.LeftArea>
           <div className="header-leftArea">
-            <h1>Logo</h1>
+            <img src={Logo} alt="" />
           </div>
           <div className="body-leftArea">
-            <Button.SideBarButton>
+            <Button.SideBarButton
+              onClick={(e) => handleActiveBtn("notice")}
+              active={check[0].notice}
+            >
               <div className="effectBorder"></div>
               <FontAwesomeIcon id="icon" icon={faMessage} />
               <p>Notícias</p>
             </Button.SideBarButton>
 
-            <Button.SideBarButton>
+            <Button.SideBarButton
+              onClick={(e) => handleActiveBtn("dashboard")}
+              active={check[0].dashboard}
+            >
               <div className="effectBorder"></div>
               <FontAwesomeIcon id="icon" icon={faChartLine} />
               <p>DashBoard</p>
             </Button.SideBarButton>
 
-            <Button.SideBarButton>
+            <Button.SideBarButton
+              onClick={(e) => handleActiveBtn("requests")}
+              active={check[0].requests}
+            >
               <div className="effectBorder"></div>
               <FontAwesomeIcon id="icon" icon={faTruckFast} />
               <p>Pedidos</p>
             </Button.SideBarButton>
 
-            <Button.SideBarButton>
+            <Button.SideBarButton
+              onClick={(e) => handleActiveBtn("finance")}
+              active={check[0].finance}
+            >
               <div className="effectBorder"></div>
               <FontAwesomeIcon id="icon" icon={faCoins} />
               <p>Extrato financeiro</p>
             </Button.SideBarButton>
 
-            <Button.SideBarButton>
+            <Button.SideBarButton
+              onClick={(e) => handleActiveBtn("manager")}
+              active={check[0].manager}
+            >
               <div className="effectBorder"></div>
               <FontAwesomeIcon id="icon" icon={faGear} />
               <p>Gerenciar dados</p>
@@ -99,6 +171,12 @@ export const DashBoard = () => {
             </div>
           </div>
         </C.LeftArea>
+        <C.RightArea>
+          {check[0].notice && <NoticeStage />}
+          {check[0].dashboard && <DashBoardStage />}
+          {check[0].finance && <FinanceStage />}
+          {check[0].manager && <ManagerStage />}
+        </C.RightArea>
       </C.Container>
     </>
   );

@@ -5,6 +5,21 @@ export const Container = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
+
+  @media (max-width: 1126px) {
+    flex-direction: column;
+  }
+`;
+
+export const RightArea = styled.div`
+  width: 96%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  @media (max-width: 1126px) {
+    width: 100%;
+    height: 90vw;
+  }
 `;
 
 export const LeftArea = styled.div`
@@ -13,6 +28,10 @@ export const LeftArea = styled.div`
   display: flex;
   flex-direction: column;
 
+  @media (max-width: 1126px) {
+    display: none;
+  }
+
   .header-leftArea {
     height: 140px;
     background-color: ${Colors.blue};
@@ -20,6 +39,11 @@ export const LeftArea = styled.div`
     h1 {
       margin: auto;
       color: white;
+    }
+
+    img {
+      height: 90px;
+      margin: auto;
     }
   }
 
@@ -55,4 +79,16 @@ export const LeftArea = styled.div`
       margin-left: 12px;
     }
   }
+`;
+
+export const LeftAreaMobile = styled.div`
+  @media (max-width: 1126px) {
+    display: flex;
+  }
+  @media (min-width: 1126px) {
+    display: none;
+  }
+  height: 10vh;
+
+  display: flex;
 `;

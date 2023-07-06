@@ -6,6 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import Logo from "../../assets/logo.png";
 
 const validationUser = yup.object().shape({
   email: yup.string().required("Email obrigatório."),
@@ -50,7 +51,9 @@ export const Login = () => {
     <>
       <C.Container>
         <C.LeftArea>
-          <C.HeaderLeftArea>Logo</C.HeaderLeftArea>
+          <C.HeaderLeftArea>
+            <img src={Logo} />
+          </C.HeaderLeftArea>
           <C.BodyLeftArea method="POST" onSubmit={handleSubmit(userLogin)}>
             {errors.email && (
               <div className="alert alert-warning" role="alert">

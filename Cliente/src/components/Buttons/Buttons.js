@@ -28,10 +28,13 @@ export const SideBarButton = styled.div`
   margin-top: 22px;
   align-items: center;
 
+  background-color: ${(props) => (props.active ? " #f5f8fa" : "#fff")};
+  border-left: ${(props) => (props.active ? " 7px solid #466aa9" : "none")};
+
   font-size: 17px;
   #icon {
     margin-left: 8px;
-    color: ${Colors.gray};
+    color: ${(props) => (props.active ? "#466aa9" : "#bbbbbb")};
     height: "22px";
   }
   P {
@@ -43,16 +46,41 @@ export const SideBarButton = styled.div`
     margin-left: 12px;
   }
   &:hover {
-    background-color: ${Colors.white};
+    background-color: #f5f8fa;
+    border-left: 7px solid #466aa9;
     cursor: pointer;
-    .effectBorder {
-      height: 35px;
-      width: 6px;
-      background-color: ${Colors.blue};
-      border-radius: 20px 0px 0px 20px;
-    }
+
     #icon {
-      color: ${Colors.blue};
+      color: #466aa9;
     }
   }
+`;
+
+export const BalanceButton = styled.button`
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 8px 16px;
+  width: 175px;
+  height: 40px;
+  background: #466aa9;
+  border-radius: 80px;
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
 `;

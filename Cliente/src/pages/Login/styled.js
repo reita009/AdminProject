@@ -30,6 +30,10 @@ export const HeaderLeftArea = styled.header`
   justify-content: center;
   color: #fff;
   display: flex;
+
+  img {
+    height: 90px;
+  }
 `;
 
 export const BodyLeftArea = styled.form`
