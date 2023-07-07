@@ -32,6 +32,13 @@ export const SideBarButton = styled.div`
   border-left: ${(props) => (props.active ? " 7px solid #466aa9" : "none")};
 
   font-size: 17px;
+
+  @media (max-width: 1500px) {
+    height: 59px;
+    p {
+      align-items: center;
+    }
+  }
   #icon {
     margin-left: 8px;
     color: ${(props) => (props.active ? "#466aa9" : "#bbbbbb")};
@@ -83,4 +90,11 @@ export const BalanceButton = styled.button`
   border: none;
   color: #ffffff;
   cursor: pointer;
+`;
+
+export const MobileButton = styled.button`
+  width: 80%;
+  height: 40px;
+  background-color: #466aa9;
+  border: none;
 `;

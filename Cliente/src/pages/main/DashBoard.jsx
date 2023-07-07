@@ -29,6 +29,32 @@ export const DashBoard = () => {
     { finance: false },
     { manager: false },
   ]);
+  if (!check[0].notice) {
+    var activeButtonNotice = "btn btn-outline-light";
+  } else {
+    var activeButtonNotice = "btn btn-outline-light active";
+  }
+  if (!check[0].dashboard) {
+    var activeButtonDashBoard = "btn btn-outline-light";
+  } else {
+    var activeButtonDashBoard = "btn btn-outline-light active";
+  }
+  if (!check[0].finance) {
+    var activeButtonFinance = "btn btn-outline-light";
+  } else {
+    var activeButtonFinance = "btn btn-outline-light active";
+  }
+  if (!check[0].requests) {
+    var activeButtonRequest = "btn btn-outline-light";
+  } else {
+    var activeButtonRequest = "btn btn-outline-light active";
+  }
+  if (!check[0].manager) {
+    var activeButtonManager = "btn btn-outline-light";
+  } else {
+    var activeButtonManager = "btn btn-outline-light active";
+  }
+  const [showMenuMobile, setShowMenuMobile] = useState(false);
 
   const handleActiveBtn = (e) => {
     switch (e) {
@@ -49,6 +75,7 @@ export const DashBoard = () => {
       case "requests":
         if (check[0].requests) {
           setCheck([{ requests: false }]);
+          console.log("ola");
         } else {
           setCheck([{ requests: true }]);
         }
@@ -69,6 +96,13 @@ export const DashBoard = () => {
         break;
     }
   };
+  const handleShowMenuMobile = () => {
+    if (showMenuMobile) {
+      setShowMenuMobile(false);
+    } else {
+      setShowMenuMobile(true);
+    }
+  };
 
   useEffect(() => {
     getEmail();
@@ -86,12 +120,7 @@ export const DashBoard = () => {
       setLoading(false);
     }
   };
-  /*
-    {email.map((item, index) => (
-        <div key={index}>
-          <p>{item.email}</p>
-        </div>
-      ))}*/
+
   return (
     <>
       {loading && (
@@ -110,7 +139,54 @@ export const DashBoard = () => {
 
       <C.Container>
         <C.LeftAreaMobile>
-          <FontAwesomeIcon icon={faBars} className="icon" />
+          <FontAwesomeIcon
+            icon={faBars}
+            className="icon"
+            onClick={handleShowMenuMobile}
+          />
+          {showMenuMobile && (
+            <div className="btn-mobile-group">
+              <button
+                type="button"
+                className={activeButtonNotice}
+                onClick={(e) => handleActiveBtn("notice")}
+              >
+                Notícias
+              </button>
+              <button
+                type="button"
+                className={activeButtonDashBoard}
+                onClick={(e) => handleActiveBtn("dashboard")}
+                active={check[0].dashboard}
+              >
+                DashBoard
+              </button>
+              <button
+                type="button"
+                className={activeButtonRequest}
+                onClick={(e) => handleActiveBtn("requests")}
+                active={check[0].requests}
+              >
+                Pedidos
+              </button>
+              <button
+                type="button"
+                className={activeButtonFinance}
+                onClick={(e) => handleActiveBtn("finance")}
+                active={check[0].finance}
+              >
+                Extrato financeiro
+              </button>
+              <button
+                type="button"
+                className={activeButtonManager}
+                onClick={(e) => handleActiveBtn("manager")}
+                active={check[0].manager}
+              >
+                Gerenciar Dados
+              </button>
+            </div>
+          )}
         </C.LeftAreaMobile>
 
         <C.LeftArea>

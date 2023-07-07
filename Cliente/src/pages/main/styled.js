@@ -12,13 +12,13 @@ export const Container = styled.div`
 `;
 
 export const RightArea = styled.div`
-  width: 96%;
+  width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
   @media (max-width: 1126px) {
     width: 100%;
-    height: 90vw;
+    height: 100%;
   }
 `;
 
@@ -88,7 +88,32 @@ export const LeftAreaMobile = styled.div`
   @media (min-width: 1126px) {
     display: none;
   }
-  height: 10vh;
-
   display: flex;
+  background-color: ${Colors.blue};
+  flex-direction: column;
+  padding-bottom: 30px;
+  padding-top: 30px;
+
+  .btn-mobile-group {
+    width: 100%;
+    display: flex;
+    margin-top: 20px;
+    flex-direction: column;
+    button {
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 12px;
+      font-weight: bold;
+      border-radius: 20px;
+      width: 80%;
+    }
+  }
+
+  .icon {
+    margin-top: 200px;
+    margin: auto;
+    height: 45px;
+    color: ${Colors.white};
+    cursor: pointer;
+  }
 `;

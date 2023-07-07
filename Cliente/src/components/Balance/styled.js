@@ -14,11 +14,23 @@ export const Balance = styled.div`
   align-items: center;
   background-color: white;
 
+  @media (max-width: 1126px) {
+    flex-direction: column;
+    height: 250px;
+    width: 400px;
+  }
+
   .addCredit {
     margin-left: auto;
     height: 36px;
     display: flex;
     align-items: center;
+    @media (max-width: 1126px) {
+      flex-direction: column;
+      height: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
     span {
       font-family: sans-serif;
       font-style: normal;
@@ -28,6 +40,9 @@ export const Balance = styled.div`
       text-align: center;
       color: #4b4b4b;
       margin-right: 8px;
+      @media (max-width: 1126px) {
+        margin-top: 10px;
+      }
     }
     .resultCredit {
       background-color: ${Colors.white};
@@ -46,6 +61,9 @@ export const Balance = styled.div`
         transition: fill 200ms;
         font-size: 1.5rem;
         margin-right: 10px;
+      }
+      @media (max-width: 1126px) {
+        margin-top: 10px;
       }
     }
   }
@@ -81,4 +99,9 @@ export const BalanceTitle = styled.h1`
   margin-left: 20px;
   margin-right: 60px;
   margin-left: 10px;
+
+  @media (max-width: 1126px) {
+    margin-left: auto;
+    margin-right: auto;
+  }
 `;
