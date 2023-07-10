@@ -7,6 +7,10 @@ export const Container = styled.div`
   background-color: ${Colors.white};
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 1336px) {
+    height: 1000000px;
+  }
 `;
 
 export const CardNotice = styled.div`
@@ -32,9 +36,12 @@ export const CardNotice = styled.div`
   &:hover {
     background-color: #f5f5f5;
   }
-
-  @media (max-width: 1126px) {
-    height: 600px;
+  @media (max-width: 1026px) {
+    height: 40vh;
+    flex-direction: column;
+  }
+  @media (max-width: 622px) {
+    height: 60vh;
     flex-direction: column;
   }
 

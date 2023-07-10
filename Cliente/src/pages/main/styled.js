@@ -18,16 +18,15 @@ export const RightArea = styled.div`
   flex-direction: column;
   @media (max-width: 1126px) {
     width: 100%;
-    height: 100%;
+    height: 90vw;
   }
 `;
 
 export const LeftArea = styled.div`
-  width: 14%;
+  width: 300px;
   height: 100vh;
   display: flex;
   flex-direction: column;
-
   @media (max-width: 1126px) {
     display: none;
   }
