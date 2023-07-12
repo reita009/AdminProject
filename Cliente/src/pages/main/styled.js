@@ -27,13 +27,14 @@ export const LeftArea = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: ${Colors.black};
   @media (max-width: 1126px) {
     display: none;
   }
 
   .header-leftArea {
     height: 140px;
-    background-color: ${Colors.blue};
+    background-color: ${Colors.green};
     display: flex;
     h1 {
       margin: auto;
@@ -62,15 +63,17 @@ export const LeftArea = styled.div`
     margin-right: auto;
     display: flex;
     .exit-area {
+      width: 100%;
       display: flex;
-      margin-left: auto;
-      margin-right: auto;
-      cursor: pointer;
+      a {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      button {
+        height: 70px;
+      }
     }
-    #exit-icon {
-      color: red;
-      height: 26px;
-    }
+
     P {
       display: flex;
       color: ${Colors.fonte};

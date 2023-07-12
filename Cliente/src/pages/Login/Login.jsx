@@ -6,7 +6,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import Logo from "../../assets/logo.png";
+import Roket from "../../assets/Rocket.gif";
+import Boat from "../../assets/boat.gif";
+import { Welcome } from "../../components/Welcome/Welcome";
 
 const validationUser = yup.object().shape({
   email: yup.string().required("Email obrigatório."),
@@ -51,9 +53,7 @@ export const Login = () => {
     <>
       <C.Container>
         <C.LeftArea>
-          <C.HeaderLeftArea>
-            <img src={Logo} />
-          </C.HeaderLeftArea>
+          <Welcome />
           <C.BodyLeftArea method="POST" onSubmit={handleSubmit(userLogin)}>
             {errors.email && (
               <div className="alert alert-warning" role="alert">
@@ -70,9 +70,10 @@ export const Login = () => {
                 Email.. ou Senha invalida!
               </div>
             )}
+
+            <img src={Boat} alt="" />
             <C.TitleArea>
-              <h1>Olá!</h1>
-              <p>Insira suas credenciais para fazer o seu login</p>
+              <h1>LOGIN</h1>
             </C.TitleArea>
             <C.InputArea>
               <label>E-mail</label>
@@ -96,15 +97,6 @@ export const Login = () => {
               />
               <p>{errors.password?.message}</p>
             </C.InputArea>
-            <C.ForgotPasswordArea>
-              <input type="checkbox" />
-              <p>Lembre-me</p>
-              <Link className="link">Esqueci minha senha</Link>
-            </C.ForgotPasswordArea>
-            <C.TermsOfUse>
-              <p>Ao acessar nosso sistema você concorda com nossos</p>
-              <Link className="link">Termos de Uso.</Link>
-            </C.TermsOfUse>
 
             <Buttons.DefaultButton>Entrar</Buttons.DefaultButton>
             <C.HelpArea>
@@ -113,12 +105,16 @@ export const Login = () => {
               </p>
             </C.HelpArea>
             <Link to="/register">
-              <span className="badge text-bg-primary">Cadastre-se</span>
+              <span className="badge text-bg-success">Cadastre-se</span>
             </Link>
           </C.BodyLeftArea>
         </C.LeftArea>
         <C.RightArea>
-          <C.BgEffect></C.BgEffect>
+          <div className="right-title">
+            <h1>Faça Login</h1>
+            <h1>E entre para nosso time</h1>
+          </div>
+          <img src={Roket} alt="" />
         </C.RightArea>
       </C.Container>
     </>

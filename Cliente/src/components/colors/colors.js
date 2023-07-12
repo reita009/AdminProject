@@ -3,7 +3,9 @@ const Colors = {
   white: "#F5F8FA",
   blueButton: "#466AA9",
   gray: "#b2bec3",
-  fonte: "#4B4B4B",
+  fonte: "#201A31",
+  black: "#13131F",
+  green: "#2ecc71",
 };
 
 export default Colors;

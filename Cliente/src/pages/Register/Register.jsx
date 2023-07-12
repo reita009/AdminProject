@@ -6,7 +6,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import Logo from "../../assets/logo.png";
+import Figure from "../../assets/Register.gif";
+import FigureMobile from "../../assets/AboutUs.gif";
 
 const validationUser = yup.object().shape({
   email: yup.string().required("Preencha o campo do email."),
@@ -51,9 +52,9 @@ export const Register = () => {
     <>
       <C.Container>
         <C.LeftArea>
-          <C.HeaderLeftArea>
-            <img src={Logo} />
-          </C.HeaderLeftArea>
+          <div className="mobile-icon">
+            <img src={FigureMobile} alt="" />
+          </div>
           <C.FormRegister method="POST" onSubmit={handleSubmit(userLogin)}>
             <C.HeaderForm>
               <h1>Cadastro</h1>
@@ -102,12 +103,12 @@ export const Register = () => {
             </Buttons.DefaultButton>
 
             <Link to="/login">
-              <span className="badge text-bg-primary back">Voltar?</span>
+              <span className="badge text-bg-danger back">Voltar?</span>
             </Link>
           </C.FormRegister>
         </C.LeftArea>
         <C.RightArea>
-          <C.BgEffect></C.BgEffect>
+          <img src={Figure} alt="" />
         </C.RightArea>
       </C.Container>
     </>

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import img from "../../assets/bg-login.jpg";
+import Colors from "../../components/colors/colors";
 
 export const Container = styled.div`
   width: 100%;
@@ -16,23 +16,10 @@ export const LeftArea = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: ${Colors.black};
+
   @media (max-width: 1000px) {
     width: 100%;
-  }
-`;
-
-export const HeaderLeftArea = styled.header`
-  width: 100%;
-  height: 100px;
-  background-color: #2f67b2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  display: flex;
-
-  img {
-    height: 90px;
   }
 `;
 
@@ -40,18 +27,41 @@ export const BodyLeftArea = styled.form`
   width: 452px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 60px;
+  margin-top: 100px;
   padding: 17px;
+  background-color: #26263e;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  img {
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    @media (min-width: 1000px) {
+      display: none;
+    }
+  }
+  a {
+    color: ${Colors.green};
+  }
+  @media (max-width: 1000px) {
+    background-color: ${Colors.black};
+    margin-top: 0px;
+  }
 `;
 
 export const TitleArea = styled.div`
+  display: flex;
+  width: 100%;
   h1 {
     font-style: normal;
     font-weight: 700;
     font-size: 28px;
     line-height: 36px;
-    color: #4b4b4b;
+    color: ${Colors.green};
     margin-right: 12px;
+    margin-left: auto;
+    margin-right: auto;
   }
   p {
     margin-top: 12px;
@@ -84,7 +94,7 @@ export const InputArea = styled.div`
     font-weight: 700;
     font-size: 16px;
     line-height: 24px;
-    color: #4b4b4b;
+    color: #7f8fa6;
     flex: none;
     align-self: stretch;
   }
@@ -124,70 +134,11 @@ export const Input = styled.input`
   margin-top: 8px;
   margin-bottom: 40px;
   outline: none;
-`;
-
-export const ForgotPasswordArea = styled.div`
-  font-family: sans-serif;
-  display: flex;
-  padding: 13px;
-  width: 100%;
-  input {
-    color: #466aa9;
-    border-radius: 4px;
-    height: 18px;
-    width: 18px;
-    margin-right: 11px;
+  &::placeholder {
+    color: ${Colors.green};
   }
-  p {
-    width: 92px;
-    height: 24px;
-    font-family: sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    color: #4b4b4b;
-  }
-  .link {
-    width: 170px;
-    height: 24px;
-    font-family: "SkolaSans";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 24px;
-    display: flex;
-    align-items: center;
-    color: #466aa9;
-    text-decoration: none;
-  }
-`;
-
-export const TermsOfUse = styled.div`
-  height: 44px;
-  width: 400px;
-  margin-top: 10px;
-  p {
-    font-family: sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 22px;
-    color: #4b4b4b;
-  }
-  .link {
-    width: 170px;
-    height: 24px;
-    font-family: "SkolaSans";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 24px;
-    display: flex;
-    align-items: center;
-    color: #466aa9;
-    text-decoration: none;
-  }
+  background-color: #292945;
+  border: ${Colors.green};
 `;
 
 export const HelpArea = styled.div`
@@ -205,7 +156,7 @@ export const HelpArea = styled.div`
     font-size: 16px;
     line-height: 24px;
     span {
-      color: #466aa9;
+      color: ${Colors.green};
       font-weight: bold;
       margin-left: 5px;
     }
@@ -215,10 +166,25 @@ export const HelpArea = styled.div`
 export const RightArea = styled.div`
   width: 60%;
   height: 100vh;
-  background-color: aliceblue;
-  background-image: url(${img});
+  background-color: #13131f;
   background-repeat: no-repeat;
   background-size: cover;
+  display: flex;
+  flex-direction: column;
+  h1 {
+    color: ${Colors.green};
+  }
+  img {
+    margin-left: auto;
+    margin-right: auto;
+    height: 500px;
+  }
+  .right-title {
+    margin-top: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 60px;
+  }
 
   @media (max-width: 1000px) {
     display: none;

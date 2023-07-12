@@ -1,10 +1,12 @@
 import styled from "styled-components";
-import img from "../../assets/bg-login.jpg";
+import Colors from "../../components/colors/colors";
 
 export const Container = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
+
+  background-color: ${Colors.black};
   @media (max-width: 1100px) {
     width: 100%;
     overflow: hidden;
@@ -16,45 +18,33 @@ export const LeftArea = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
+
+  .mobile-icon {
+    width: 100%;
+
+    img {
+      height: 250px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    display: none;
+    @media (max-width: 1100px) {
+      display: flex;
+    }
+  }
   @media (max-width: 1100px) {
     width: 100%;
-  }
-`;
-
-export const HeaderLeftArea = styled.header`
-  width: 100%;
-  height: 100px;
-  background-color: #2f67b2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  display: flex;
-
-  img {
-    height: 90px;
   }
 `;
 
 export const RightArea = styled.div`
   width: 60%;
   height: 100vh;
-  background-color: aliceblue;
-  background-image: url(${img});
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  @media (max-width: 1100px) {
-    display: none;
-  }
-`;
-export const BgEffect = styled.div`
-  position: absolute;
-  background-color: #2f67b2;
   display: flex;
-  height: 100vh;
-  width: 60%;
-  opacity: 0.3;
+  img {
+    margin: auto;
+  }
+
   @media (max-width: 1100px) {
     display: none;
   }
@@ -66,7 +56,7 @@ export const FormRegister = styled.form`
   flex-direction: column;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 110px;
+  margin-top: 180px;
   border-radius: 20px;
 
   .link {
@@ -89,6 +79,7 @@ export const FormRegister = styled.form`
 
   @media (max-width: 1100px) {
     width: 90%;
+    margin-top: 0;
   }
 
   .button {
@@ -109,7 +100,7 @@ export const HeaderForm = styled.div`
     font-weight: 700;
     font-size: 32px;
     line-height: 36px;
-    color: #4b4b4b;
+    color: ${Colors.green};
     margin-left: auto;
     margin-right: auto;
   }
@@ -129,7 +120,7 @@ export const InputArea = styled.div`
     font-weight: 700;
     font-size: 16px;
     line-height: 24px;
-    color: #4b4b4b;
+    color: #7f8fa6;
     flex: none;
     align-self: stretch;
   }

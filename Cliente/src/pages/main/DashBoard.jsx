@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import * as C from "./styled";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -14,7 +15,7 @@ import {
 import Colors from "../../components/colors/colors";
 import * as Button from "../../components/Buttons/Buttons";
 import Logo from "../../assets/logo.png";
-import { DashBoardStage } from "../../components/Stages/DashBoardStage/DashBoardStage";
+import { ContactsStage } from "../../components/Stages/Contacts/ContactsStage";
 import { FinanceStage } from "../../components/Stages/FinanceStage/FinanceStage";
 import { ManagerStage } from "../../components/Stages/ManagerStage/ManagerStage";
 import { NoticeStage } from "../../components/Stages/NoticeStage/NoticeStage";
@@ -24,7 +25,7 @@ export const DashBoard = () => {
   const [loading, setLoading] = useState(false);
   const [check, setCheck] = useState([
     { notice: true },
-    { dashboard: false },
+    { contacts: false },
     { requests: false },
     { finance: false },
     { manager: false },
@@ -34,10 +35,10 @@ export const DashBoard = () => {
   } else {
     var activeButtonNotice = "btn btn-outline-light active";
   }
-  if (!check[0].dashboard) {
-    var activeButtonDashBoard = "btn btn-outline-light";
+  if (!check[0].contacts) {
+    var activeButtonContacts = "btn btn-outline-light";
   } else {
-    var activeButtonDashBoard = "btn btn-outline-light active";
+    var activeButtonContacts = "btn btn-outline-light active";
   }
   if (!check[0].finance) {
     var activeButtonFinance = "btn btn-outline-light";
@@ -65,11 +66,11 @@ export const DashBoard = () => {
           setCheck([{ notice: true }]);
         }
         break;
-      case "dashboard":
-        if (check[0].dashboard) {
-          setCheck([{ dashboard: false }]);
+      case "contacts":
+        if (check[0].contacts) {
+          setCheck([{ contacts: false }]);
         } else {
-          setCheck([{ dashboard: true }]);
+          setCheck([{ contacts: true }]);
         }
         break;
       case "requests":
@@ -155,11 +156,11 @@ export const DashBoard = () => {
               </button>
               <button
                 type="button"
-                className={activeButtonDashBoard}
-                onClick={(e) => handleActiveBtn("dashboard")}
-                active={check[0].dashboard}
+                className={activeButtonContacts}
+                onClick={(e) => handleActiveBtn("contacts")}
+                active={check[0].contacts}
               >
-                DashBoard
+                Lista de usuários
               </button>
               <button
                 type="button"
@@ -204,12 +205,12 @@ export const DashBoard = () => {
             </Button.SideBarButton>
 
             <Button.SideBarButton
-              onClick={(e) => handleActiveBtn("dashboard")}
-              active={check[0].dashboard}
+              onClick={(e) => handleActiveBtn("contacts")}
+              active={check[0].contacts}
             >
               <div className="effectBorder"></div>
               <FontAwesomeIcon id="icon" icon={faChartLine} />
-              <p>DashBoard</p>
+              <p>Lista de usuários</p>
             </Button.SideBarButton>
 
             <Button.SideBarButton
@@ -242,14 +243,15 @@ export const DashBoard = () => {
 
           <div className="footer-leftArea">
             <div className="exit-area">
-              <FontAwesomeIcon id="exit-icon" icon={faArrowRightFromBracket} />
-              <p>Sair</p>
+              <Link to="/login">
+                <button className="btn btn-outline-danger">Sair</button>
+              </Link>
             </div>
           </div>
         </C.LeftArea>
         <C.RightArea>
           {check[0].notice && <NoticeStage />}
-          {check[0].dashboard && <DashBoardStage />}
+          {check[0].contacts && <ContactsStage />}
           {check[0].finance && <FinanceStage />}
           {check[0].manager && <ManagerStage />}
         </C.RightArea>

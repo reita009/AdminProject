@@ -1,10 +1,11 @@
 import { Balance } from "../../Balance/Balance";
 import * as C from "./styled";
-export const DashBoardStage = () => {
+
+export const ContactsStage = () => {
   return (
     <>
       <C.Container>
-        <Balance subject="DashBoard" />
+        <Balance subject="Lista de Usuários" />
         <div className="cardGroup">
           <C.CardDashboard>
             <h3>Tabela de referência</h3>
