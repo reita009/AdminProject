@@ -91,7 +91,7 @@ export const LeftAreaMobile = styled.div`
     display: none;
   }
   display: flex;
-  background-color: ${Colors.blue};
+  background-color: ${Colors.green};
   flex-direction: column;
   padding-bottom: 30px;
   padding-top: 30px;
@@ -115,7 +115,7 @@ export const LeftAreaMobile = styled.div`
     margin-top: 200px;
     margin: auto;
     height: 45px;
-    color: ${Colors.white};
+    color: ${Colors.black};
     cursor: pointer;
   }
 `;

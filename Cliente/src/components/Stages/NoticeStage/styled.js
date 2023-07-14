@@ -4,7 +4,7 @@ import Colors from "../../colors/colors";
 export const Container = styled.div`
   width: 100%;
   height: 100vh;
-  background-color: ${Colors.white};
+  background-color: #1a1a28;
   display: flex;
   flex-direction: column;
 
@@ -14,14 +14,14 @@ export const Container = styled.div`
 `;
 
 export const CardNotice = styled.div`
-  height: 192px;
+  height: 252px;
   width: 90%;
   border-radius: 24px;
-  background-color: #fff;
+  background-color: #34495e;
   margin-top: 24px;
   margin-left: auto;
   margin-right: auto;
-
+  color: ${Colors.gray};
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -34,15 +34,20 @@ export const CardNotice = styled.div`
   padding: 0px 20px;
   cursor: pointer;
   &:hover {
-    background-color: #f5f5f5;
+    background-color: #2c3d4e;
   }
   @media (max-width: 1026px) {
     height: 40vh;
     flex-direction: column;
   }
   @media (max-width: 622px) {
-    height: 60vh;
+    height: 70vh;
     flex-direction: column;
+    padding-top: 15px;
+  }
+
+  .right {
+    margin-left: 30px;
   }
 
   .headerCard {

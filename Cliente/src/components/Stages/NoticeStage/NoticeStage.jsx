@@ -1,6 +1,7 @@
 import { Balance } from "../../Balance/Balance";
 import * as C from "./styled";
 import Logo from "../../../assets/logo2.png";
+import Frame from "../../Frame/Frame";
 
 export const NoticeStage = () => {
   return (
@@ -8,7 +9,7 @@ export const NoticeStage = () => {
       <C.Container>
         <Balance subject="Notícias" />
         <C.CardNotice>
-          <img src={Logo} alt="" />
+          <Frame />
           <div className="right">
             <div className="headerCard">
               <h3>Empresa</h3>
@@ -30,7 +31,7 @@ export const NoticeStage = () => {
         </C.CardNotice>
 
         <C.CardNotice>
-          <img src={Logo} alt="" />
+          <Frame />
           <div className="right">
             <div className="headerCard">
               <h3>Empresa</h3>
@@ -52,7 +53,7 @@ export const NoticeStage = () => {
         </C.CardNotice>
 
         <C.CardNotice>
-          <img src={Logo} alt="" />
+          <Frame />
           <div className="right">
             <div className="headerCard">
               <h3>Empresa</h3>

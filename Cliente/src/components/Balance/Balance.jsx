@@ -9,12 +9,16 @@ export const Balance = (props) => {
       <C.Balance>
         <C.BalanceTitle>{props.subject}</C.BalanceTitle>
         <div className="addCredit">
-          <span>Meu Saldo:</span>
+          <span>Saldo:</span>
 
           <div className="resultCredit">
             <FontAwesomeIcon className="icon" icon={faFileInvoiceDollar} />
             <span>R$5,558</span>
-            <B.BalanceButton>Adicionar créditos</B.BalanceButton>
+            <B.BalanceButton>
+              <button class="button-74" role="button">
+                Adicionar créditos
+              </button>
+            </B.BalanceButton>
           </div>
           <div className="NameUser">
             <p>

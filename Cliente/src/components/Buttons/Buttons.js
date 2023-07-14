@@ -19,20 +19,25 @@ export const DefaultButton = styled.button`
   cursor: pointer;
   &:hover {
     background-color: #01f884;
+    box-shadow: 3px 5px 7px 5px #2ecc71;
+    transition: ease-in 0.5s;
   }
 `;
 export const SideBarButton = styled.div`
   width: 100%;
-  height: 38px;
   display: flex;
   border-radius: 10px;
   margin-top: 22px;
   align-items: center;
-
+  text-align: center;
   background-color: ${(props) => (props.active ? " #27ae60" : "#34495e")};
-  border-left: ${(props) => (props.active ? " 7px solid #27ae60" : "none")};
+  font-size: 22px;
 
-  font-size: 17px;
+  #icon {
+    height: 25px;
+    margin-left: 4px;
+    color: ${(props) => (props.active ? "#34495e" : "#27ae60")};
+  }
 
   @media (max-width: 1500px) {
     height: 59px;
@@ -40,18 +45,14 @@ export const SideBarButton = styled.div`
       align-items: center;
     }
   }
-  #icon {
-    margin-left: 8px;
-    color: ${(props) => (props.active ? "#34495e" : "#27ae60")};
-    height: "22px";
-  }
+
   P {
     display: flex;
     color: ${Colors.fonte};
     height: 100%;
-    margin-top: 28px;
     font-weight: bold;
     margin-left: 12px;
+    margin-top: 10px;
   }
   &:hover {
     background-color: #27ae60;
@@ -64,38 +65,40 @@ export const SideBarButton = styled.div`
   }
 `;
 
-export const BalanceButton = styled.button`
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  padding: 8px 16px;
-  width: 175px;
-  height: 40px;
-  background: #466aa9;
-  border-radius: 80px;
-  font-family: sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  border: none;
-  color: #ffffff;
-  cursor: pointer;
-`;
+export const BalanceButton = styled.div`
+  /* CSS */
+  .button-74 {
+    background-color: ${Colors.green};
+    border: 2px solid #422800;
+    border-radius: 30px;
+    box-shadow: #422800 4px 4px 0 0;
+    color: #13131f;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 0 18px;
+    line-height: 50px;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
 
-export const MobileButton = styled.button`
-  width: 80%;
-  height: 40px;
-  background-color: #466aa9;
-  border: none;
+  .button-74:hover {
+    background-color: #27ae60;
+  }
+
+  .button-74:active {
+    box-shadow: #422800 2px 2px 0 0;
+    transform: translate(2px, 2px);
+  }
+
+  @media (min-width: 768px) {
+    .button-74 {
+      min-width: 120px;
+      padding: 0 25px;
+    }
+  }
 `;

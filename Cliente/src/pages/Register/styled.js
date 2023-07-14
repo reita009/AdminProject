@@ -23,7 +23,7 @@ export const LeftArea = styled.div`
     width: 100%;
 
     img {
-      height: 250px;
+      height: 350px;
       margin-left: auto;
       margin-right: auto;
     }

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import * as C from "./styled";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faMessage,
+  faNewspaper,
   faChartLine,
   faTruckFast,
   faCoins,
@@ -12,7 +12,6 @@ import {
   faArrowRightFromBracket,
   faBars,
 } from "@fortawesome/free-solid-svg-icons";
-import Colors from "../../components/colors/colors";
 import * as Button from "../../components/Buttons/Buttons";
 import Logo from "../../assets/logo.png";
 import { ContactsStage } from "../../components/Stages/Contacts/ContactsStage";
@@ -31,29 +30,29 @@ export const DashBoard = () => {
     { manager: false },
   ]);
   if (!check[0].notice) {
-    var activeButtonNotice = "btn btn-outline-light";
+    var activeButtonNotice = "btn btn-outline-success";
   } else {
-    var activeButtonNotice = "btn btn-outline-light active";
+    var activeButtonNotice = "btn btn-outline-success active";
   }
   if (!check[0].contacts) {
-    var activeButtonContacts = "btn btn-outline-light";
+    var activeButtonContacts = "btn btn-outline-success";
   } else {
-    var activeButtonContacts = "btn btn-outline-light active";
+    var activeButtonContacts = "btn btn-outline-success active";
   }
   if (!check[0].finance) {
-    var activeButtonFinance = "btn btn-outline-light";
+    var activeButtonFinance = "btn btn-outline-success";
   } else {
-    var activeButtonFinance = "btn btn-outline-light active";
+    var activeButtonFinance = "btn btn-outline-success active";
   }
   if (!check[0].requests) {
-    var activeButtonRequest = "btn btn-outline-light";
+    var activeButtonRequest = "btn btn-outline-success";
   } else {
-    var activeButtonRequest = "btn btn-outline-light active";
+    var activeButtonRequest = "btn btn-outline-success active";
   }
   if (!check[0].manager) {
-    var activeButtonManager = "btn btn-outline-light";
+    var activeButtonManager = "btn btn-outline-success";
   } else {
-    var activeButtonManager = "btn btn-outline-light active";
+    var activeButtonManager = "btn btn-outline-success active";
   }
   const [showMenuMobile, setShowMenuMobile] = useState(false);
 
@@ -168,7 +167,7 @@ export const DashBoard = () => {
                 onClick={(e) => handleActiveBtn("requests")}
                 active={check[0].requests}
               >
-                Pedidos
+                Cursos
               </button>
               <button
                 type="button"
@@ -176,7 +175,7 @@ export const DashBoard = () => {
                 onClick={(e) => handleActiveBtn("finance")}
                 active={check[0].finance}
               >
-                Extrato financeiro
+                Conquistas
               </button>
               <button
                 type="button"
@@ -184,7 +183,7 @@ export const DashBoard = () => {
                 onClick={(e) => handleActiveBtn("manager")}
                 active={check[0].manager}
               >
-                Gerenciar Dados
+                Configurações
               </button>
             </div>
           )}
@@ -200,7 +199,7 @@ export const DashBoard = () => {
               active={check[0].notice}
             >
               <div className="effectBorder"></div>
-              <FontAwesomeIcon id="icon" icon={faMessage} />
+              <FontAwesomeIcon id="icon" icon={faNewspaper} />
               <p>Notícias</p>
             </Button.SideBarButton>
 
@@ -219,7 +218,7 @@ export const DashBoard = () => {
             >
               <div className="effectBorder"></div>
               <FontAwesomeIcon id="icon" icon={faTruckFast} />
-              <p>Pedidos</p>
+              <p>Cursos</p>
             </Button.SideBarButton>
 
             <Button.SideBarButton
@@ -228,7 +227,7 @@ export const DashBoard = () => {
             >
               <div className="effectBorder"></div>
               <FontAwesomeIcon id="icon" icon={faCoins} />
-              <p>Extrato financeiro</p>
+              <p>Conquistas</p>
             </Button.SideBarButton>
 
             <Button.SideBarButton
@@ -237,7 +236,7 @@ export const DashBoard = () => {
             >
               <div className="effectBorder"></div>
               <FontAwesomeIcon id="icon" icon={faGear} />
-              <p>Gerenciar dados</p>
+              <p>Configurações</p>
             </Button.SideBarButton>
           </div>
 
