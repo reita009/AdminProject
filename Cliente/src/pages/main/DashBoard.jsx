@@ -3,10 +3,12 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import * as C from "./styled";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import {
+  faGraduationCap,
   faNewspaper,
-  faChartLine,
-  faTruckFast,
+  faAddressBook,
+  faAward,
   faCoins,
   faGear,
   faArrowRightFromBracket,
@@ -208,7 +210,7 @@ export const DashBoard = () => {
               active={check[0].contacts}
             >
               <div className="effectBorder"></div>
-              <FontAwesomeIcon id="icon" icon={faChartLine} />
+              <FontAwesomeIcon id="icon" icon={faAddressBook} />
               <p>Lista de usuários</p>
             </Button.SideBarButton>
 
@@ -217,7 +219,7 @@ export const DashBoard = () => {
               active={check[0].requests}
             >
               <div className="effectBorder"></div>
-              <FontAwesomeIcon id="icon" icon={faTruckFast} />
+              <FontAwesomeIcon id="icon" icon={faGraduationCap} />
               <p>Cursos</p>
             </Button.SideBarButton>
 
@@ -226,7 +228,7 @@ export const DashBoard = () => {
               active={check[0].finance}
             >
               <div className="effectBorder"></div>
-              <FontAwesomeIcon id="icon" icon={faCoins} />
+              <FontAwesomeIcon id="icon" icon={faAward} />
               <p>Conquistas</p>
             </Button.SideBarButton>
 

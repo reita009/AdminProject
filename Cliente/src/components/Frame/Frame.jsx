@@ -1,13 +1,12 @@
 import * as C from "./styled";
-
-const Frame = () => {
+import img from "../../assets/threads.jpg";
+const Frame = (props) => {
   return (
     <>
       <C.Frame>
         <div className="box">
-          <div className="ribbon">
-            <span>New!</span>
-          </div>
+          <div className="ribbon">{props.active && <span>NEW!</span>}</div>
+          <img src={props.img} alt="" />
         </div>
       </C.Frame>
     </>

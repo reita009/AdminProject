@@ -12,6 +12,7 @@ import FigureMobile from "../../assets/AboutUs.gif";
 const validationUser = yup.object().shape({
   email: yup.string().required("Preencha o campo do email."),
   password: yup.string().required("Preencha o campo da senha."),
+  name: yup.string().required("Preencha o campo do nome."),
 });
 export const Register = () => {
   const {
@@ -78,6 +79,16 @@ export const Register = () => {
               </div>
             )}
 
+            <C.InputArea>
+              <label>Nome</label>
+              <C.Input
+                className="form-control"
+                type="text"
+                placeholder="Digite seu nome"
+                name="name"
+                {...register("name")}
+              />
+            </C.InputArea>
             <C.InputArea>
               <label>E-mail</label>
               <C.Input

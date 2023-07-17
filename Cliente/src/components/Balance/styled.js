@@ -3,18 +3,20 @@ import Colors from "../colors/colors";
 
 export const Balance = styled.div`
   width: 90%;
-  height: 90px;
+  height: 190px;
   margin-top: 16px;
   border-radius: 15px;
   margin-left: auto;
   margin-right: auto;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  padding: 8px;
   display: flex;
   align-items: center;
-  background-color: #34495e;
+
   h1 {
+    font-size: 40px;
     color: ${Colors.green};
+    @media (max-width: 1126px) {
+      margin-bottom: 30px;
+    }
   }
 
   @media (max-width: 1126px) {
@@ -25,9 +27,14 @@ export const Balance = styled.div`
 
   .addCredit {
     margin-left: auto;
-    height: 36px;
+    border-radius: 20px;
+    padding: 8px;
+    height: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: #34495e;
     @media (max-width: 1126px) {
       flex-direction: column;
       height: 300px;
@@ -82,7 +89,7 @@ export const Balance = styled.div`
         font-family: sans-serif;
         font-style: normal;
         font-weight: 700;
-        font-size: 20px;
+        font-size: 30px;
         line-height: 24px;
         text-align: center;
         color: #f39c12;

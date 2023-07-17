@@ -4,8 +4,18 @@ const User = require("./user");
 const bcrypt = require("bcryptjs");
 const adminAuth = require("../midlewares/adminAuth");
 
+var UserSession = [];
+
 router.get("/admin/users", (req, res) => {
   User.findAll().then((users) => {
+    res.json({
+      users: users,
+    });
+  });
+});
+
+router.get("/admin/users/name", (req, res) => {
+  var id = req.User.findAll().then((users) => {
     res.json({
       users: users,
     });
@@ -19,6 +29,7 @@ router.get("/admin/users/create", adminAuth, (req, res) => {
 router.post("/users/create", (req, res) => {
   var email = req.body.email;
   var password = req.body.password;
+  var name = req.body.name;
 
   User.findOne({ where: { email: email } }).then((user) => {
     if (user == undefined) {
@@ -26,6 +37,8 @@ router.post("/users/create", (req, res) => {
       var hash = bcrypt.hashSync(password, salt);
 
       User.create({
+        name,
+        name,
         email: email,
         password: hash,
       })
@@ -42,7 +55,9 @@ router.post("/users/create", (req, res) => {
   });
 });
 
-router.get("/login", (req, res) => {});
+router.get("/login", (req, res) => {
+  res.send(UserSession);
+});
 
 router.post("/authenticate", (req, res) => {
   var email = req.body.email;
@@ -54,9 +69,10 @@ router.post("/authenticate", (req, res) => {
       //validar senha
       var correct = bcrypt.compareSync(password, user.password);
       if (correct) {
-        req.session.user = {
+        UserSession = req.session.user = {
           id: user.id,
           email: user.email,
+          name: user.name,
         };
         res.json(req.session.user);
       } else {

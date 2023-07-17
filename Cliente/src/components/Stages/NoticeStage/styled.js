@@ -32,18 +32,21 @@ export const CardNotice = styled.div`
   display: -ms-flexbox;
   display: flex;
   padding: 0px 20px;
+  h3 {
+    color: ${Colors.green};
+  }
   cursor: pointer;
   &:hover {
     background-color: #2c3d4e;
   }
   @media (max-width: 1026px) {
-    height: 40vh;
+    height: 60vh;
     flex-direction: column;
+    padding-top: 15px;
   }
   @media (max-width: 622px) {
     height: 70vh;
     flex-direction: column;
-    padding-top: 15px;
   }
 
   .right {

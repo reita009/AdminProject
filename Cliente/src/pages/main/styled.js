@@ -31,6 +31,9 @@ export const LeftArea = styled.div`
   @media (max-width: 1126px) {
     display: none;
   }
+  @media (max-width: 1336px) {
+    height: 934px;
+  }
 
   .header-leftArea {
     height: 140px;

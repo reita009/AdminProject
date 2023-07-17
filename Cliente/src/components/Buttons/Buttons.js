@@ -66,6 +66,7 @@ export const SideBarButton = styled.div`
 `;
 
 export const BalanceButton = styled.div`
+  margin-bottom: 20px;
   /* CSS */
   .button-74 {
     background-color: ${Colors.green};

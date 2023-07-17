@@ -6,7 +6,17 @@ export const Frame = styled.div`
     height: 160px;
     position: relative;
     border: 1px solid #bbb;
-    background: #eee;
+    background-size: 100% 158px;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+
+    display: flex;
+  }
+  img {
+    width: 130px;
+    height: 160px;
+    border-radius: 20px;
+    margin: auto;
   }
   .ribbon {
     position: absolute;

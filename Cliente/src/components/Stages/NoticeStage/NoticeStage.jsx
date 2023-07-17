@@ -1,7 +1,9 @@
 import { Balance } from "../../Balance/Balance";
 import * as C from "./styled";
-import Logo from "../../../assets/logo2.png";
 import Frame from "../../Frame/Frame";
+import image from "../../../assets/threads.jpg";
+import image2 from "../../../assets/BlueSky.jpg";
+import image3 from "../../../assets/Ai.jpg";
 
 export const NoticeStage = () => {
   return (
@@ -9,10 +11,10 @@ export const NoticeStage = () => {
       <C.Container>
         <Balance subject="Notícias" />
         <C.CardNotice>
-          <Frame />
+          <Frame img={image} active />
           <div className="right">
             <div className="headerCard">
-              <h3>Empresa</h3>
+              <h3>threads</h3>
               <span>22/10/2022 16h</span>
             </div>
             <p>
@@ -31,10 +33,10 @@ export const NoticeStage = () => {
         </C.CardNotice>
 
         <C.CardNotice>
-          <Frame />
+          <Frame img={image2} active />
           <div className="right">
             <div className="headerCard">
-              <h3>Empresa</h3>
+              <h3>Blue sky</h3>
               <span>22/10/2022 16h</span>
             </div>
             <p>
@@ -53,10 +55,10 @@ export const NoticeStage = () => {
         </C.CardNotice>
 
         <C.CardNotice>
-          <Frame />
+          <Frame img={image3} active />
           <div className="right">
             <div className="headerCard">
-              <h3>Empresa</h3>
+              <h3>Inteligencia Artificial</h3>
               <span>22/10/2022 16h</span>
             </div>
             <p>
