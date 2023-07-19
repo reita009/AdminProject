@@ -1,8 +1,9 @@
+import * as C from "./styled";
 import { Balance } from "../../Balance/Balance";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export const ManagerStage = () => {
+export const Course = () => {
   const [users, setUsers] = useState([]);
 
   const getUsers = async () => {
@@ -15,10 +16,12 @@ export const ManagerStage = () => {
   useEffect(() => {
     getUsers();
   }, []);
+
   return (
     <>
-      <Balance subject="Gerencia de Dados" name={users.name} />
-      ola
+      <C.Container>
+        <Balance subject="Cursos" name={users.name} />
+      </C.Container>
     </>
   );
 };

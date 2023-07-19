@@ -20,6 +20,7 @@ import { ContactsStage } from "../../components/Stages/Contacts/ContactsStage";
 import { FinanceStage } from "../../components/Stages/FinanceStage/FinanceStage";
 import { ManagerStage } from "../../components/Stages/ManagerStage/ManagerStage";
 import { NoticeStage } from "../../components/Stages/NoticeStage/NoticeStage";
+import { Course } from "../../components/Stages/Course/Course";
 
 export const DashBoard = () => {
   const [email, setEmail] = useState([]);
@@ -27,7 +28,7 @@ export const DashBoard = () => {
   const [check, setCheck] = useState([
     { notice: true },
     { contacts: false },
-    { requests: false },
+    { course: false },
     { finance: false },
     { manager: false },
   ]);
@@ -46,10 +47,10 @@ export const DashBoard = () => {
   } else {
     var activeButtonFinance = "btn btn-outline-success active";
   }
-  if (!check[0].requests) {
-    var activeButtonRequest = "btn btn-outline-success";
+  if (!check[0].course) {
+    var activeButtonCourse = "btn btn-outline-success";
   } else {
-    var activeButtonRequest = "btn btn-outline-success active";
+    var activeButtonCourse = "btn btn-outline-success active";
   }
   if (!check[0].manager) {
     var activeButtonManager = "btn btn-outline-success";
@@ -74,12 +75,12 @@ export const DashBoard = () => {
           setCheck([{ contacts: true }]);
         }
         break;
-      case "requests":
-        if (check[0].requests) {
-          setCheck([{ requests: false }]);
+      case "course":
+        if (check[0].course) {
+          setCheck([{ course: false }]);
           console.log("ola");
         } else {
-          setCheck([{ requests: true }]);
+          setCheck([{ course: true }]);
         }
         break;
       case "finance":
@@ -165,9 +166,9 @@ export const DashBoard = () => {
               </button>
               <button
                 type="button"
-                className={activeButtonRequest}
-                onClick={(e) => handleActiveBtn("requests")}
-                active={check[0].requests}
+                className={activeButtonCourse}
+                onClick={(e) => handleActiveBtn("course")}
+                active={check[0].course}
               >
                 Cursos
               </button>
@@ -215,8 +216,8 @@ export const DashBoard = () => {
             </Button.SideBarButton>
 
             <Button.SideBarButton
-              onClick={(e) => handleActiveBtn("requests")}
-              active={check[0].requests}
+              onClick={(e) => handleActiveBtn("course")}
+              active={check[0].course}
             >
               <div className="effectBorder"></div>
               <FontAwesomeIcon id="icon" icon={faGraduationCap} />
@@ -253,6 +254,7 @@ export const DashBoard = () => {
         <C.RightArea>
           {check[0].notice && <NoticeStage />}
           {check[0].contacts && <ContactsStage />}
+          {check[0].course && <Course />}
           {check[0].finance && <FinanceStage />}
           {check[0].manager && <ManagerStage />}
         </C.RightArea>

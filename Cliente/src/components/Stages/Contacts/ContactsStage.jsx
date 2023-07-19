@@ -5,6 +5,7 @@ import axios from "axios";
 
 export const ContactsStage = () => {
   const [users, setUsers] = useState([]);
+  const [sessionUser, setSessionUser] = useState([]);
 
   const getUsers = async () => {
     try {
@@ -13,14 +14,21 @@ export const ContactsStage = () => {
       setUsers(response.data.users);
     } catch (e) {}
   };
+  const getSessionUsers = async () => {
+    try {
+      let response = await axios.get("http://localhost:8081/login");
+
+      setSessionUser(response.data);
+    } catch (e) {}
+  };
   useEffect(() => {
     getUsers();
-    console.log(users);
+    getSessionUsers();
   }, []);
   return (
     <>
       <C.Container>
-        <Balance subject="Lista de Usuários" users="Julio" />
+        <Balance subject="Lista de Usuários" name={sessionUser.name} />
 
         <div className="table-whrap">
           <table className="table table-hover">

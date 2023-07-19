@@ -4,12 +4,26 @@ import Frame from "../../Frame/Frame";
 import image from "../../../assets/threads.jpg";
 import image2 from "../../../assets/BlueSky.jpg";
 import image3 from "../../../assets/Ai.jpg";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 export const NoticeStage = () => {
+  const [users, setUsers] = useState([]);
+
+  const getUsers = async () => {
+    try {
+      let response = await axios.get("http://localhost:8081/login");
+
+      setUsers(response.data);
+    } catch (e) {}
+  };
+  useEffect(() => {
+    getUsers();
+  }, []);
   return (
     <>
       <C.Container>
-        <Balance subject="Notícias" />
+        <Balance subject="Notícias" name={users.name} />
         <C.CardNotice>
           <Frame img={image} active />
           <div className="right">
