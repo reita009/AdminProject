@@ -6,8 +6,10 @@ export const Container = styled.div`
   background-color: #1a1a28;
   display: flex;
   flex-direction: column;
+  overflow-y: scroll;
+
   @media (max-width: 1336px) {
-    height: 1000000px;
+    height: 100%;
   }
 
   .table-whrap {
@@ -22,7 +24,7 @@ export const Container = styled.div`
     flex-direction: column;
     background-color: #fff;
 
-    overflow-x: auto;
+    overflow-y: auto;
   }
   .table-hover {
     &:hover {

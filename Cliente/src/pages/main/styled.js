@@ -18,7 +18,8 @@ export const RightArea = styled.div`
   flex-direction: column;
   @media (max-width: 1126px) {
     width: 100%;
-    height: 90vw;
+    height: 1000px;
+    overflow: hidden;
   }
 `;
 

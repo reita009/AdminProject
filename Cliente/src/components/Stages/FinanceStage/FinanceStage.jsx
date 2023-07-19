@@ -16,15 +16,7 @@ export const FinanceStage = () => {
   return (
     <>
       <C.Container>
-        <Balance subject="Conquistas" name={users.name} />
-        <C.TableContainer>
-          <div className="footer-table">
-            <div className="left-footer">
-              <span>Itens por Página</span>
-              <div className="result-pages">5</div>
-            </div>
-          </div>
-        </C.TableContainer>
+        <Balance subject="Conquistas" name={users.name} />a
       </C.Container>
     </>
   );

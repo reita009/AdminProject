@@ -3,11 +3,12 @@ import Colors from "../../colors/colors";
 
 export const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 1000px;
   background-color: #1a1a28;
   display: flex;
   flex-direction: column;
-
+  overflow-y: auto;
+  padding-bottom: 20px;
   @media (max-width: 1336px) {
     height: 1000000px;
   }
