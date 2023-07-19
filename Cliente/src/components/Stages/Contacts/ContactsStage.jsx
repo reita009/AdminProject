@@ -1,25 +1,19 @@
 import { Balance } from "../../Balance/Balance";
 import { useEffect, useState } from "react";
 import * as C from "./styled";
-import axios from "axios";
+import { Api } from "../../../Api";
 
 export const ContactsStage = () => {
   const [users, setUsers] = useState([]);
   const [sessionUser, setSessionUser] = useState([]);
 
   const getUsers = async () => {
-    try {
-      let response = await axios.get("http://localhost:8081/admin/users");
-
-      setUsers(response.data.users);
-    } catch (e) {}
+    let json = await Api.getUsers();
+    setUsers(json);
   };
   const getSessionUsers = async () => {
-    try {
-      let response = await axios.get("http://localhost:8081/login");
-
-      setSessionUser(response.data);
-    } catch (e) {}
+    let json = await Api.getSessionUser();
+    setSessionUser(json);
   };
   useEffect(() => {
     getUsers();

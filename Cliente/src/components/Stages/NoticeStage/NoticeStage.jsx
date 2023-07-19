@@ -4,18 +4,15 @@ import Frame from "../../Frame/Frame";
 import image from "../../../assets/threads.jpg";
 import image2 from "../../../assets/BlueSky.jpg";
 import image3 from "../../../assets/Ai.jpg";
-import axios from "axios";
+import { Api } from "../../../Api";
 import { useState, useEffect } from "react";
 
 export const NoticeStage = () => {
   const [users, setUsers] = useState([]);
 
   const getUsers = async () => {
-    try {
-      let response = await axios.get("http://localhost:8081/login");
-
-      setUsers(response.data);
-    } catch (e) {}
+    let json = await Api.getSessionUser();
+    setUsers(json);
   };
   useEffect(() => {
     getUsers();

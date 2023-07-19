@@ -1,17 +1,14 @@
 import { Balance } from "../../Balance/Balance";
 import * as C from "./styled";
-import axios from "axios";
 import { useState, useEffect } from "react";
+import { Api } from "../../../Api";
 
 export const FinanceStage = () => {
   const [users, setUsers] = useState([]);
 
   const getUsers = async () => {
-    try {
-      let response = await axios.get("http://localhost:8081/login");
-
-      setUsers(response.data);
-    } catch (e) {}
+    let json = await Api.getSessionUser();
+    setUsers(json);
   };
   useEffect(() => {
     getUsers();
