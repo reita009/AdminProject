@@ -1,5 +1,7 @@
 const Sequelize = require("sequelize");
 const connection = require("../dataBase");
+//const Finance = require("../Finance/finance");
+const Finance = require("../Finance/financeModel");
 
 const User = connection.define("users", {
   name: {
@@ -15,7 +17,7 @@ const User = connection.define("users", {
     allowNull: false,
   },
 });
-
+User.belongsTo(Finance);
 User.sync({ force: false });
 
 module.exports = User;

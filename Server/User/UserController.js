@@ -1,13 +1,14 @@
 const express = require("express");
 const router = express.Router();
 const User = require("./user");
+const Finance = require("../Finance/financeModel");
 const bcrypt = require("bcryptjs");
 const adminAuth = require("../midlewares/adminAuth");
 
 var UserSession = [];
 
 router.get("/admin/users", (req, res) => {
-  User.findAll().then((users) => {
+  User.findAll({ model: Finance }).then((users) => {
     res.json({
       users: users,
     });
@@ -36,18 +37,29 @@ router.post("/users/create", (req, res) => {
       var salt = bcrypt.genSaltSync(10);
       var hash = bcrypt.hashSync(password, salt);
 
-      User.create({
-        name,
-        name,
-        email: email,
-        password: hash,
-      })
-        .then(() => {
-          console.log("Usuário cadastrado com sucesso!");
+      Finance.create({
+        saldo: 80,
+        typeFinance: "Crédito",
+        date: Date(),
+        reason: "Vitalício",
+      }).then((response) => {
+        const financeId = response.id;
+
+        User.create({
+          name,
+          name,
+          email: email,
+          password: hash,
+          financeId,
         })
-        .catch((e) => {
-          console.log(`aconteceu um erro: ${e}`);
-        });
+          .then(() => {
+            console.log("Usuário cadastrado com sucesso!");
+          })
+          .catch((e) => {
+            console.log(`aconteceu um erro: ${e}`);
+          });
+      });
+
       res.send("rota create deu certo");
     } else {
       res.status(500).send("usuário ja cadastrado!");

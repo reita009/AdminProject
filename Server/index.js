@@ -4,7 +4,9 @@ const app = express();
 const bodyParser = require("body-parser");
 const connection = require("./dataBase");
 const userController = require("./User/UserController");
+const financeController = require("./Finance/FinanceController");
 const User = require("./User/user");
+const Finance = require("./Finance/financeModel");
 const session = require("express-session");
 //DataBase
 connection
@@ -31,6 +33,7 @@ app.use(cors());
 
 //controllers
 app.use("/", userController);
+app.use("/", financeController);
 
 app.get("/session", (req, res) => {
   req.session.ano = 2023;
