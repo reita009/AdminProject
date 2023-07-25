@@ -1,6 +1,5 @@
 const Sequelize = require("sequelize");
 const connection = require("../dataBase");
-//const Finance = require("../Finance/finance");
 const Finance = require("../Finance/financeModel");
 
 const User = connection.define("users", {

@@ -4,13 +4,14 @@ const User = require("./user");
 const Finance = require("../Finance/financeModel");
 const bcrypt = require("bcryptjs");
 const adminAuth = require("../midlewares/adminAuth");
+const { where } = require("sequelize");
 
 var UserSession = [];
 
 router.get("/admin/users", (req, res) => {
-  User.findAll({ model: Finance }).then((users) => {
-    res.json({
-      users: users,
+  User.findOne().then((user) => {
+    Finance.findOne({ where: { id: user.financeId } }).then((finance) => {
+      res.json(finance.saldo);
     });
   });
 });
@@ -38,7 +39,7 @@ router.post("/users/create", (req, res) => {
       var hash = bcrypt.hashSync(password, salt);
 
       Finance.create({
-        saldo: 80,
+        saldo: 180,
         typeFinance: "Crédito",
         date: Date(),
         reason: "Vitalício",

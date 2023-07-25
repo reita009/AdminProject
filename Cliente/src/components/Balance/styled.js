@@ -74,6 +74,9 @@ export const Balance = styled.div`
       @media (max-width: 1126px) {
         margin-top: 10px;
       }
+      span {
+        color: #fff;
+      }
     }
   }
   .NameUser {

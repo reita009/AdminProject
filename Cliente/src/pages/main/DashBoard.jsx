@@ -126,20 +126,6 @@ export const DashBoard = () => {
 
   return (
     <>
-      {loading && (
-        <div className="spinner-border text-info" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </div>
-      )}
-
-      {!loading && email.length == 0 && (
-        <div className="alert alert-warning" role="alert">
-          <div className="alert alert-warning" role="alert">
-            Erro de conexão com servidor!.. tente mais tarde
-          </div>
-        </div>
-      )}
-
       <C.Container>
         <C.LeftAreaMobile>
           <FontAwesomeIcon

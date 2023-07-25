@@ -3,6 +3,7 @@ import axios from "axios";
 const login = "http://localhost:8081/login";
 const users = "http://localhost:8081/admin/users";
 const finance = "http://localhost:8081/admin/finances";
+const balance = "http://localhost:8081/admin/finances";
 
 export const Api = {
   getSessionUser: async () => {
@@ -16,5 +17,9 @@ export const Api = {
   geFinance: async () => {
     let response = await axios.get(finance);
     return response.data;
+  },
+  getbalance: async () => {
+    let response = await axios.get(balance);
+    return await response.data;
   },
 };

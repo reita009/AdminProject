@@ -2,11 +2,13 @@ import { Balance } from "../../Balance/Balance";
 import { useEffect, useState } from "react";
 import * as C from "./styled";
 import { Api } from "../../../Api";
+import { number } from "yup";
 
 export const ContactsStage = () => {
   const [users, setUsers] = useState([]);
   const [sessionUser, setSessionUser] = useState([]);
   const [finance, setFinance] = useState([]);
+  const [balance, setBalance] = useState([]);
 
   const getUsers = async () => {
     let json = await Api.getUsers();
@@ -20,13 +22,13 @@ export const ContactsStage = () => {
     let json = await Api.geFinance();
     setFinance(json.finance);
   };
+  const getBalance = async () => {
+    let json = await Api.getbalance();
+    setBalance(json);
+  };
   useEffect(() => {
-    getUsers();
     getSessionUsers();
-    getFinances();
   }, []);
-  console.log(finance);
-
   return (
     <>
       <C.Container>
