@@ -59,12 +59,24 @@ export const Balance = (props) => {
             </div>
           </div>
           <B.BalanceButton>
-            <button class="button-74" role="button" onClick={handleShowCash}>
+            <button class="button-74" role="button">
               Adicionar créditos
             </button>
           </B.BalanceButton>
         </div>
       </C.Balance>
+      <C.Hidem></C.Hidem>
+      <C.BlancePainel>
+        <div className="painel">
+          <div className="header-painel">
+            <h2>Adicionar créditos</h2>
+            <span>X</span>
+          </div>
+          <div className="header-subtitle">
+            <span>Selecione o método de pagamento:</span>
+          </div>
+        </div>
+      </C.BlancePainel>
     </>
   );
 };

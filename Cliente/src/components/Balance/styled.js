@@ -118,3 +118,66 @@ export const BalanceTitle = styled.h1`
     margin-right: auto;
   }
 `;
+
+export const Hidem = styled.div`
+  height: 100%;
+  width: 100%;
+  background-color: ${Colors.gray};
+  opacity: calc(0.5);
+  z-index: 1;
+  position: absolute;
+  display: flex;
+`;
+export const BlancePainel = styled.div`
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  position: absolute;
+  display: flex;
+
+  .painel {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    background-color: #1b1464;
+    height: 600px;
+    width: 850px;
+    border-radius: 20px;
+    padding: 8px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+
+    .header-painel {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      margin-top: 12px;
+
+      h2 {
+        color: ${Colors.green};
+        margin-left: auto;
+        margin-right: auto;
+      }
+      span {
+        font-size: 40px;
+        margin-top: -30px;
+        margin-right: 12px;
+        cursor: pointer;
+      }
+    }
+    .header-subtitle {
+      width: 100%;
+      display: flex;
+
+      span {
+        color: #006266;
+        width: 290px;
+        font-size: 16px;
+        font-weight: 600;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+`;
