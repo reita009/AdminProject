@@ -129,8 +129,7 @@ export const Hidem = styled.div`
   display: flex;
 `;
 export const BlancePainel = styled.div`
-  height: 100%;
-  width: 100%;
+  width: 100vw;
   z-index: 2;
   position: absolute;
   display: flex;
@@ -139,7 +138,7 @@ export const BlancePainel = styled.div`
     margin-left: auto;
     margin-right: auto;
     margin-top: 40px;
-    background-color: #1b1464;
+    background-color: ${Colors.black};
     height: 600px;
     width: 850px;
     border-radius: 20px;
@@ -179,5 +178,84 @@ export const BlancePainel = styled.div`
         margin-right: auto;
       }
     }
+    .body-painel {
+      width: 100%;
+      margin-top: 60px;
+      height: 150px;
+      display: flex;
+      flex-direction: column;
+
+      .card-group {
+        margin: auto;
+      }
+
+      .credit-info {
+        display: flex;
+        flex-direction: column;
+
+        .info-title {
+          margin-left: auto;
+          margin-right: auto;
+          margin-top: 20px;
+          margin-bottom: 20px;
+          span {
+            color: #006266;
+            font-size: 26px;
+          }
+        }
+        .input-area {
+          display: flex;
+          flex-direction: column;
+          width: 350px;
+          height: 100px;
+          padding: 8px;
+          margin-left: 20px;
+          label {
+            font-size: 20px;
+            color: #006266;
+            font-weight: bold;
+          }
+          h1 {
+            color: ${Colors.green};
+          }
+          .input-voucher {
+            display: flex;
+            margin-top: 8px;
+
+            span {
+              color: ${Colors.white};
+              margin-left: 4px;
+              margin-right: 4px;
+            }
+            #input-number {
+              width: 100px;
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const CardCredit = styled.div`
+  height: 120px;
+  width: 200px;
+  margin-left: 15px;
+  background-color: #34495e;
+  border-radius: 20px;
+  padding: 14px;
+  cursor: pointer;
+
+  border: 2px solid ${(props) => (props.active ? "#006266" : "none")};
+  display: flex;
+  flex-direction: column;
+  .icon {
+    font-size: 25px;
+  }
+  span {
+    color: ${Colors.green};
+    font-size: 20px;
+    text-align: center;
+    margin-top: 15px;
   }
 `;
