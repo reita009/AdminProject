@@ -139,7 +139,7 @@ export const BlancePainel = styled.div`
     margin-right: auto;
     margin-top: 40px;
     background-color: ${Colors.black};
-    height: 600px;
+    height: 650px;
     width: 850px;
     border-radius: 20px;
     padding: 8px;
@@ -192,6 +192,47 @@ export const BlancePainel = styled.div`
       .credit-info {
         display: flex;
         flex-direction: column;
+
+        .input-group {
+          display: flex;
+          .button-74 {
+            margin-top: 20px;
+            margin-left: 12px;
+          }
+          .info {
+            width: 600px;
+            color: #006266;
+            margin-bottom: 20px;
+
+            span {
+              color: ${Colors.green};
+            }
+          }
+
+          .Ticket-area {
+            display: flex;
+            flex-direction: column;
+            margin-left: auto;
+            margin-right: auto;
+
+            margin-top: 20px;
+            .input-area {
+              margin-left: auto;
+              margin-right: auto;
+              .input-voucher {
+                margin-left: 20px;
+                width: 280px;
+                input {
+                  width: 200px;
+                }
+              }
+            }
+            #button-wrap {
+              margin-left: auto;
+              margin-right: auto;
+            }
+          }
+        }
 
         .info-title {
           margin-left: auto;
@@ -246,7 +287,7 @@ export const CardCredit = styled.div`
   padding: 14px;
   cursor: pointer;
 
-  border: 2px solid ${(props) => (props.active ? "#006266" : "none")};
+  border: 2px solid ${(props) => (props.active ? "#2ecc71" : "none")};
   display: flex;
   flex-direction: column;
   .icon {

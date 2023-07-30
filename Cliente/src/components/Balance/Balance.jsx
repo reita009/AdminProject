@@ -16,7 +16,9 @@ export const Balance = (props) => {
   const [balance, setBalance] = useState([]);
   const [showCash, setShowCash] = useState(false);
   const [showPainel, setShowPainel] = useState(false);
-  const [showCreditCard, setShowCreditCard] = useState(true);
+  const [showCreditCard, setShowCreditCard] = useState(false);
+  const [showTicket, setShowTicket] = useState(false);
+  const [showPix, setShowPix] = useState(true);
 
   const getSessionUsers = async () => {
     let json = await Api.getSessionUser();
@@ -35,6 +37,18 @@ export const Balance = (props) => {
   };
   const handleShowCreitCard = () => {
     setShowCreditCard(!showCreditCard);
+    setShowTicket(false);
+    setShowPix(false);
+  };
+  const handleShoTicketCard = () => {
+    setShowCreditCard(false);
+    setShowTicket(!showTicket);
+    setShowPix(false);
+  };
+  const handleShowPix = () => {
+    setShowCreditCard(false);
+    setShowTicket(false);
+    setShowPix(!showPix);
   };
 
   useEffect(() => {
@@ -108,7 +122,10 @@ export const Balance = (props) => {
                     />
                     <span>Cartão de crédito</span>
                   </C.CardCredit>
-                  <C.CardCredit>
+                  <C.CardCredit
+                    onClick={handleShoTicketCard}
+                    active={showTicket}
+                  >
                     <FontAwesomeIcon
                       className="icon"
                       icon={faNewspaper}
@@ -116,7 +133,7 @@ export const Balance = (props) => {
                     />
                     <span>Boleto bancário</span>
                   </C.CardCredit>
-                  <C.CardCredit>
+                  <C.CardCredit onClick={handleShowPix} active={showPix}>
                     <FontAwesomeIcon
                       className="icon"
                       icon={faCommentsDollar}
@@ -141,7 +158,7 @@ export const Balance = (props) => {
                         <div className="input-area">
                           <label>Valor desejado</label>
                           <div className="input-voucher">
-                            <span>R$</span>{" "}
+                            <span>R$</span>
                             <input
                               id="input-number"
                               className="form-control"
@@ -149,6 +166,82 @@ export const Balance = (props) => {
                             />
                             <span> ,00</span>
                           </div>
+                        </div>
+                        <B.BalanceButton>
+                          <button class="button-74" role="button">
+                            Adicionar crédito
+                          </button>
+                        </B.BalanceButton>
+                      </div>
+                    </div>
+                  </>
+                )}
+                {showTicket && (
+                  <>
+                    <div className="credit-info">
+                      <div className="info-title">
+                        <span>Valor desejado</span>
+                      </div>
+
+                      <div className="input-group">
+                        <div className="Ticket-area">
+                          <div className="input-area">
+                            <div className="input-voucher">
+                              <span>R$</span>
+                              <input
+                                id="input-number-ticket"
+                                className="form-control"
+                                type="number"
+                              />
+                              <span> ,00</span>
+                            </div>
+                          </div>
+                          <div className="info">
+                            <span>Atenção:</span> após o pagamento do boleto,
+                            poderá levar até 3 dias úteis para que o valor
+                            carregado apareça no seu saldo de créditos.
+                          </div>
+                          <B.BalanceButton id="button-wrap">
+                            <button class="button-74" role="button">
+                              Adicionar crédito
+                            </button>
+                          </B.BalanceButton>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                )}
+
+                {showPix && (
+                  <>
+                    <div className="credit-info">
+                      <div className="info-title">
+                        <span>Valor desejado</span>
+                      </div>
+
+                      <div className="input-group">
+                        <div className="Ticket-area">
+                          <div className="input-area">
+                            <div className="input-voucher">
+                              <span>R$</span>
+                              <input
+                                id="input-number-ticket"
+                                className="form-control"
+                                type="number"
+                              />
+                              <span> ,00</span>
+                            </div>
+                          </div>
+                          <div className="info">
+                            <span>Atenção:</span> após o pagamento do pix,
+                            aguarde alguns instantes até que seu saldo seja
+                            atualizado
+                          </div>
+                          <B.BalanceButton id="button-wrap">
+                            <button class="button-74" role="button">
+                              Gerar pix
+                            </button>
+                          </B.BalanceButton>
                         </div>
                       </div>
                     </div>
