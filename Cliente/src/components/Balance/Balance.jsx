@@ -2,8 +2,12 @@ import * as C from "./styled";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileInvoiceDollar } from "@fortawesome/free-solid-svg-icons";
 import * as B from "../Buttons/Buttons";
+import axios from "axios";
 import { useState, useEffect } from "react";
 import { Api } from "../../Api";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 import {
   faCreditCard,
@@ -29,7 +33,7 @@ export const Balance = (props) => {
     setBalance(json);
   };
   const handleShowCash = async () => {
-    console.log(balance.finance[sessionUser.id - 1].saldo);
+    // console.log(balance.finance[sessionUser.id - 1].saldo);
     setShowCash(!showCash);
   };
   const handleShowPainelCredit = () => {
@@ -57,6 +61,31 @@ export const Balance = (props) => {
     getBalance();
   }, []);
 
+  const validationUser = yup.object().shape({
+    voucher: yup.string().required("Preencha o Valor."),
+  });
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(validationUser),
+  });
+
+  const updateCash = (data) => {
+    const response = axios
+      .post("http://localhost:8081/admin/finance/update", data)
+      .then((element) => {
+        if (element.status == 200) {
+          alert("opaa agora foi ein!");
+        }
+      })
+      .catch((e) => {
+        if (e.request.status == 500) {
+        }
+      });
+  };
   return (
     <>
       <C.Balance>
@@ -149,7 +178,10 @@ export const Balance = (props) => {
                         <span>Dados do cartão</span>
                       </div>
 
-                      <div className="input-group">
+                      <form
+                        className="input-group"
+                        onSubmit={handleSubmit(updateCash)}
+                      >
                         <div className="input-area">
                           <label>Nome do titular</label>
                           <h1>{props.name}</h1>
@@ -163,6 +195,20 @@ export const Balance = (props) => {
                               id="input-number"
                               className="form-control"
                               type="number"
+                              name="voucher"
+                              {...register("voucher")}
+                            />
+                            <input
+                              type="hidden"
+                              value={props.financeId}
+                              name="financeId"
+                              {...register("financeId")}
+                            />
+                            <input
+                              type="hidden"
+                              value="credito"
+                              name="typeFinance"
+                              {...register("typeFinance")}
                             />
                             <span> ,00</span>
                           </div>
@@ -172,7 +218,7 @@ export const Balance = (props) => {
                             Adicionar crédito
                           </button>
                         </B.BalanceButton>
-                      </div>
+                      </form>
                     </div>
                   </>
                 )}

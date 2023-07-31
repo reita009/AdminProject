@@ -20,7 +20,11 @@ export const NoticeStage = () => {
   return (
     <>
       <C.Container>
-        <Balance subject="Notícias" name={users.name} />
+        <Balance
+          subject="Notícias"
+          name={users.name}
+          financeId={users.financeId}
+        />
         <C.CardNotice>
           <Frame img={image} active />
           <div className="right">
