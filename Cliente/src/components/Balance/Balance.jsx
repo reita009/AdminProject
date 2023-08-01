@@ -233,7 +233,10 @@ export const Balance = (props) => {
                         <span>Valor desejado</span>
                       </div>
 
-                      <div className="input-group">
+                      <form
+                        className="input-group"
+                        onSubmit={handleSubmit(updateCash)}
+                      >
                         <div className="Ticket-area">
                           <div className="input-area">
                             <div className="input-voucher">
@@ -242,6 +245,20 @@ export const Balance = (props) => {
                                 id="input-number-ticket"
                                 className="form-control"
                                 type="number"
+                                name="voucher"
+                                {...register("voucher")}
+                              />
+                              <input
+                                type="hidden"
+                                value={props.financeId}
+                                name="financeId"
+                                {...register("financeId")}
+                              />
+                              <input
+                                type="hidden"
+                                value="Boleto"
+                                name="typeFinance"
+                                {...register("typeFinance")}
                               />
                               <span> ,00</span>
                             </div>
@@ -257,7 +274,7 @@ export const Balance = (props) => {
                             </button>
                           </B.BalanceButton>
                         </div>
-                      </div>
+                      </form>
                     </div>
                   </>
                 )}
@@ -269,7 +286,10 @@ export const Balance = (props) => {
                         <span>Valor desejado</span>
                       </div>
 
-                      <div className="input-group">
+                      <form
+                        className="input-group"
+                        onSubmit={handleSubmit(updateCash)}
+                      >
                         <div className="Ticket-area">
                           <div className="input-area">
                             <div className="input-voucher">
@@ -278,6 +298,20 @@ export const Balance = (props) => {
                                 id="input-number-ticket"
                                 className="form-control"
                                 type="number"
+                                name="voucher"
+                                {...register("voucher")}
+                              />
+                              <input
+                                type="hidden"
+                                value={props.financeId}
+                                name="financeId"
+                                {...register("financeId")}
+                              />
+                              <input
+                                type="hidden"
+                                value="pix"
+                                name="typeFinance"
+                                {...register("typeFinance")}
                               />
                               <span> ,00</span>
                             </div>
@@ -293,7 +327,7 @@ export const Balance = (props) => {
                             </button>
                           </B.BalanceButton>
                         </div>
-                      </div>
+                      </form>
                     </div>
                   </>
                 )}
