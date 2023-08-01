@@ -30,7 +30,7 @@ router.post("/admin/finance/update", (req, res) => {
   const financeId = req.body.financeId;
   const typeFinance = req.body.typeFinance;
 
-  Finance.findOne({ where: { id: 1 } }).then((response) => {
+  Finance.findOne({ where: { id: financeId } }).then((response) => {
     let saldo = response.saldo + parseInt(voucher);
 
     Finance.update(

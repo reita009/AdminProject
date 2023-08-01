@@ -122,11 +122,14 @@ export const BalanceTitle = styled.h1`
 export const Hidem = styled.div`
   height: 100%;
   width: 100%;
-  background-color: ${Colors.gray};
+  background-color: ${Colors.black};
   opacity: calc(0.5);
   z-index: 1;
   position: absolute;
   display: flex;
+  @media (max-width: 890px) {
+    overflow-x: hidden;
+  }
 `;
 export const BlancePainel = styled.div`
   width: 100vw;
@@ -146,6 +149,20 @@ export const BlancePainel = styled.div`
     z-index: 2;
     display: flex;
     flex-direction: column;
+
+    @media (max-width: 1370px) {
+      width: 500px;
+      height: 985px;
+      flex-direction: column;
+    }
+
+    @media (max-width: 890px) {
+      flex-direction: column;
+      width: 100%;
+      height: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
     .header-painel {
       display: flex;
@@ -187,6 +204,9 @@ export const BlancePainel = styled.div`
 
       .card-group {
         margin: auto;
+        @media (max-width: 1370px) {
+          flex-direction: column;
+        }
       }
 
       .credit-info {
@@ -201,11 +221,18 @@ export const BlancePainel = styled.div`
           }
           .info {
             width: 600px;
+
             color: #006266;
             margin-bottom: 20px;
 
             span {
               color: ${Colors.green};
+            }
+            @media (max-width: 1370px) {
+              flex-direction: column;
+              width: 200px;
+              margin-left: auto;
+              margin-right: auto;
             }
           }
 
@@ -297,6 +324,9 @@ export const CardCredit = styled.div`
     color: ${Colors.green};
     font-size: 20px;
     text-align: center;
+    margin-top: 15px;
+  }
+  @media (max-width: 1370px) {
     margin-top: 15px;
   }
 `;

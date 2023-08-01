@@ -73,18 +73,22 @@ export const Balance = (props) => {
     resolver: yupResolver(validationUser),
   });
 
-  const updateCash = (data) => {
-    const response = axios
-      .post("http://localhost:8081/admin/finance/update", data)
-      .then((element) => {
-        if (element.status == 200) {
-          alert("opaa agora foi ein!");
-        }
-      })
-      .catch((e) => {
-        if (e.request.status == 500) {
-        }
-      });
+  const updateCash = async (data) => {
+    let confirmar = confirm("Deseja mesmo colocar crédito?");
+    if (confirmar) {
+      const response = await axios
+        .post("http://localhost:8081/admin/finance/update", data)
+        .then((element) => {
+          if (element.status == 200) {
+            setShowCash(false);
+            setShowPainel(false);
+          }
+        })
+        .catch((e) => {
+          if (e.request.status == 500) {
+          }
+        });
+    }
   };
   return (
     <>
